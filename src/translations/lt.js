@@ -22,7 +22,7 @@ const translations = {
     // Footer
     'footer.created': 'Sukurta su dirbtinio intelekto pagalba',
     'footer.github': 'GitHub',
-    'footer.twitter': 'Twitter',
+    'footer.powered': 'Sukurta su',
     'footer.disclaimer': 'Šis projektas nėra susijęs su Facebook ar Meta. Tai tik pramoga!',
     
     // Language

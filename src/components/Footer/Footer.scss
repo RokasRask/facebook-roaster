@@ -54,6 +54,32 @@
     }
   }
   
+  .footer-kadoa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    
+    p {
+      color: $light-text;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .kadoa-link {
+      transition: transform $transition-normal;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+    
+    .kadoa-logo {
+      height: 30px;
+      width: auto;
+    }
+  }
+  
   .footer-disclaimer {
     text-align: center;
     

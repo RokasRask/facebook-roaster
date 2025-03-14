@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../LanguageContext';
+import kadoaLogo from '../../assets/kadoa-logo.svg';
 import './Footer.scss';
 
 const Footer = () => {
@@ -16,7 +17,7 @@ const Footer = () => {
         
         <div className="footer-links">
           <a 
-            href="https://github.com/yourusername/facebook-roaster" 
+            href="https://github.com/RokasRask/facebook-roaster" 
             target="_blank" 
             rel="noopener noreferrer"
             className="footer-link"
@@ -24,16 +25,19 @@ const Footer = () => {
             <i className="icon-github"></i>
             <span>{t('footer.github')}</span>
           </a>
-          <a 
-            href="https://twitter.com/yourusername" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="footer-link"
-          >
-            <i className="icon-twitter"></i>
-            <span>{t('footer.twitter')}</span>
-          </a>
         </div>
+      </div>
+      
+      <div className="footer-kadoa">
+        <p>{t('footer.powered')}</p>
+        <a 
+          href="https://kadoa.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="kadoa-link"
+        >
+          <img src={kadoaLogo} alt="Kadoa" className="kadoa-logo" />
+        </a>
       </div>
       
       <div className="footer-disclaimer">
