@@ -1,0 +1,167 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.roast-result {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  @include card;
+  overflow: hidden;
+  
+  .roast-header {
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid rgba($light-text, 0.2);
+    text-align: center;
+    
+    .roast-title {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      margin-bottom: $spacing-sm;
+      
+      .username {
+        color: $primary-color;
+      }
+    }
+    
+    .roast-subtitle {
+      color: $light-text;
+      font-size: $font-size-md;
+      margin-bottom: 0;
+    }
+  }
+  
+  .roast-points-container {
+    margin-bottom: $spacing-lg;
+  }
+  
+  .roast-point {
+    display: flex;
+    margin-bottom: $spacing-md;
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    background-color: rgba($background-color, 0.5);
+    animation: fadeSlideIn 0.5s ease-out forwards;
+    
+    &.highlight {
+      background-color: rgba($primary-color, 0.1);
+      border-left: 3px solid $primary-color;
+    }
+    
+    .roast-point-number {
+      flex: 0 0 30px;
+      height: 30px;
+      background-color: $primary-color;
+      color: $white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: $font-weight-semibold;
+      margin-right: $spacing-md;
+    }
+    
+    .roast-point-text {
+      flex: 1;
+      line-height: 1.5;
+      padding-top: $spacing-xs;
+    }
+  }
+  
+  .roast-conclusion {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($light-text, 0.2);
+    text-align: center;
+    
+    p {
+      margin-bottom: $spacing-lg;
+    }
+    
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: $spacing-md;
+      flex-wrap: wrap;
+      
+      .share-button {
+        @include button-base;
+        padding: $spacing-sm $spacing-md;
+        display: inline-flex;
+        align-items: center;
+        
+        &.facebook {
+          background-color: $primary-color;
+          color: $white;
+          
+          &:hover {
+            background-color: $secondary-color;
+          }
+        }
+        
+        &.twitter {
+          background-color: #1DA1F2;
+          color: $white;
+          
+          &:hover {
+            background-color: darken(#1DA1F2, 10%);
+          }
+        }
+        
+        i {
+          margin-right: $spacing-sm;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Media queries
+@media (max-width: $breakpoint-mobile) {
+  .roast-result {
+    .roast-header {
+      .roast-title {
+        font-size: $font-size-md;
+      }
+      
+      .roast-subtitle {
+        font-size: $font-size-sm;
+      }
+    }
+    
+    .roast-point {
+      padding: $spacing-sm;
+      
+      .roast-point-number {
+        flex: 0 0 24px;
+        height: 24px;
+        font-size: $font-size-sm;
+      }
+      
+      .roast-point-text {
+        font-size: $font-size-sm;
+      }
+    }
+    
+    .roast-conclusion {
+      .share-buttons {
+        flex-direction: column;
+        
+        .share-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
