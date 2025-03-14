@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../LanguageContext';
 import './ProfileForm.scss';
 
 const ProfileForm = ({ onSubmit, isLoading }) => {
+  const { t } = useLanguage();
   const [username, setUsername] = useState('');
   const [error, setError] = useState('');
 
@@ -10,7 +12,7 @@ const ProfileForm = ({ onSubmit, isLoading }) => {
     
     // Basic validation
     if (!username.trim()) {
-      setError('Please enter a Facebook username or profile URL');
+      setError(t('form.error.empty'));
       return;
     }
     
@@ -40,13 +42,13 @@ const ProfileForm = ({ onSubmit, isLoading }) => {
       <form className="profile-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username" className="form-label">
-            Enter Facebook Profile Username or URL
+            {t('form.label')}
           </label>
           <input
             type="text"
             id="username"
             className={`form-input ${error ? 'form-input-error' : ''}`}
-            placeholder="e.g. johndoe or https://facebook.com/johndoe"
+            placeholder={t('form.placeholder')}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             disabled={isLoading}
@@ -61,16 +63,16 @@ const ProfileForm = ({ onSubmit, isLoading }) => {
           {isLoading ? (
             <>
               <span className="loader"></span>
-              Generating Roast...
+              {t('form.button.loading')}
             </>
           ) : (
-            'Roast My Profile'
+            t('form.button.submit')
           )}
         </button>
       </form>
       <div className="form-disclaimer">
         <p>
-          This is for entertainment purposes only. No actual data is collected from your profile.
+          {t('form.disclaimer')}
         </p>
       </div>
     </div>

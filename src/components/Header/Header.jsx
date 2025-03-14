@@ -1,13 +1,16 @@
 import React from 'react';
+import { useLanguage } from '../../LanguageContext';
 import './Header.scss';
 
 const Header = () => {
+  const { t } = useLanguage();
+  
   return (
     <header className="header">
       <div className="header-content">
-        <h1 className="header-title">Facebook Roaster</h1>
+        <h1 className="header-title">{t('app.title')}</h1>
         <p className="header-subtitle">
-          Let AI roast your Facebook profile for some brutal honesty and laughs
+          {t('app.subtitle')}
         </p>
       </div>
       <div className="header-image">

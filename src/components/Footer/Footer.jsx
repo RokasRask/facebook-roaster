@@ -1,13 +1,16 @@
 import React from 'react';
+import { useLanguage } from '../../LanguageContext';
 import './Footer.scss';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-branding">
           <p>
-            <span className="footer-project-name">Facebook Roaster</span> • Created with AI
+            <span className="footer-project-name">{t('app.title')}</span> • {t('footer.created')}
           </p>
         </div>
         
@@ -19,7 +22,7 @@ const Footer = () => {
             className="footer-link"
           >
             <i className="icon-github"></i>
-            <span>GitHub</span>
+            <span>{t('footer.github')}</span>
           </a>
           <a 
             href="https://twitter.com/yourusername" 
@@ -28,14 +31,14 @@ const Footer = () => {
             className="footer-link"
           >
             <i className="icon-twitter"></i>
-            <span>Twitter</span>
+            <span>{t('footer.twitter')}</span>
           </a>
         </div>
       </div>
       
       <div className="footer-disclaimer">
         <p>
-          This project is not affiliated with Facebook or Meta. It's just for fun!
+          {t('footer.disclaimer')}
         </p>
       </div>
     </footer>

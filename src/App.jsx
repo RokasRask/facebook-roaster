@@ -3,6 +3,8 @@ import Header from './components/Header/Header';
 import ProfileForm from './components/ProfileForm/ProfileForm';
 import RoastResult from './components/RoastResult/RoastResult';
 import Footer from './components/Footer/Footer';
+import LanguageToggle from './components/LanguageToggle/LanguageToggle';
+import { LanguageProvider } from './LanguageContext';
 import './App.scss';
 
 function App() {
@@ -30,16 +32,19 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <div className="content-wrapper">
-        <Header />
-        <main className="main-content">
-          <ProfileForm onSubmit={handleSubmit} isLoading={loading} />
-          {profileData && <RoastResult data={profileData} />}
-        </main>
-        <Footer />
+    <LanguageProvider>
+      <div className="app-container">
+        <div className="content-wrapper">
+          <LanguageToggle />
+          <Header />
+          <main className="main-content">
+            <ProfileForm onSubmit={handleSubmit} isLoading={loading} />
+            {profileData && <RoastResult data={profileData} />}
+          </main>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </LanguageProvider>
   );
 }
 

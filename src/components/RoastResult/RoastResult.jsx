@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../../LanguageContext';
 import './RoastResult.scss';
 
 const RoastResult = ({ data }) => {
+  const { t, currentLanguage } = useLanguage();
   const [visibleRoasts, setVisibleRoasts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   
@@ -32,7 +34,7 @@ const RoastResult = ({ data }) => {
     }, 800);
     
     return () => clearInterval(interval);
-  }, [data]);
+  }, [data, currentLanguage]);
 
   if (!data || !data.username) {
     return null;
@@ -42,9 +44,10 @@ const RoastResult = ({ data }) => {
     <div className="roast-result">
       <div className="roast-header">
         <h2 className="roast-title">
-          <span className="username">@{data.username}</span>'s Profile Roast
+          <span className="username">{t('result.title.prefix')}{data.username}</span>
+          {t('result.title.suffix')}
         </h2>
-        <p className="roast-subtitle">Here's what AI thinks about your profile:</p>
+        <p className="roast-subtitle">{t('result.subtitle')}</p>
       </div>
       
       <div className="roast-points-container">
@@ -62,16 +65,16 @@ const RoastResult = ({ data }) => {
       {visibleRoasts.length === data.roastPoints.length && (
         <div className="roast-conclusion slide-up">
           <p>
-            Remember, this is all in good fun! Want to share these burns with your friends?
+            {t('result.conclusion')}
           </p>
           <div className="share-buttons">
             <button className="share-button facebook">
               <i className="icon-facebook"></i>
-              Share on Facebook
+              {t('result.share.facebook')}
             </button>
             <button className="share-button twitter">
               <i className="icon-twitter"></i>
-              Share on Twitter
+              {t('result.share.twitter')}
             </button>
           </div>
         </div>
