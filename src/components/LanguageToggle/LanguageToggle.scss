@@ -1,0 +1,52 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.language-toggle {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid rgba($primary-color, 0.5);
+  border-radius: $border-radius-md;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  color: $primary-color;
+  cursor: pointer;
+  transition: all $transition-normal;
+  z-index: 10;
+  
+  &:hover {
+    background-color: rgba($primary-color, 0.05);
+    border-color: $primary-color;
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  .language-icon {
+    margin-right: $spacing-xs;
+    font-size: $font-size-md;
+  }
+  
+  .language-text {
+    font-weight: $font-weight-medium;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    top: $spacing-xs;
+    right: $spacing-xs;
+    padding: $spacing-xs;
+    
+    .language-text {
+      display: none;
+    }
+    
+    .language-icon {
+      margin-right: 0;
+    }
+  }
+}
