@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  margin-top: auto;
+  padding: $spacing-xl 0;
+  border-top: 1px solid rgba($light-text, 0.1);
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+    
+    @media (max-width: $breakpoint-mobile) {
+      flex-direction: column;
+      gap: $spacing-md;
+    }
+    
+    .footer-branding {
+      p {
+        margin-bottom: 0;
+        color: $light-text;
+        font-size: $font-size-sm;
+      }
+      
+      .footer-project-name {
+        font-weight: $font-weight-medium;
+        color: $primary-color;
+      }
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: $spacing-md;
+      
+      .footer-link {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-xs;
+        color: $light-text;
+        font-size: $font-size-sm;
+        transition: color $transition-normal;
+        
+        &:hover {
+          color: $primary-color;
+          text-decoration: none;
+        }
+        
+        i {
+          font-size: $font-size-md;
+        }
+      }
+    }
+  }
+  
+  .footer-disclaimer {
+    text-align: center;
+    
+    p {
+      font-size: $font-size-xs;
+      color: $light-text;
+      margin-bottom: 0;
+    }
+  }
+}
